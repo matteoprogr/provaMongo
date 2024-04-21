@@ -13,8 +13,6 @@ import java.util.List;
 @Repository
 public interface UtenteRepository extends MongoRepository<Utente, String> {
 
-
-
-
+    public Utente findByCognome(String cognome);
 
 }

@@ -25,6 +25,25 @@ public class HomeControl {
 
 	private final UtenteService utenteService;
 
+ @PostMapping("/save")
+	public ResponseEntity<?> save(@RequestBody UtenteDto uDto){
+	 utenteService.save(uDto);
+	 return ResponseEntity.ok("Utente salvato");
+ }
+
+ @PutMapping("/update")
+	public ResponseEntity<?> update(@RequestBody UtenteDtoUpdate utUpdate){
+	 utenteService.update(utUpdate);
+
+	 return ResponseEntity.ok("Utente modificato");
+ }
+ @DeleteMapping("/delete")
+	public ResponseEntity<?> delete(@RequestBody  UtenteDto ut){
+	 utenteService.delete(ut);
+
+	 return ResponseEntity.ok("Utente cancellato");
+ }
+
 
 
 }

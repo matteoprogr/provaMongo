@@ -18,6 +18,25 @@ import lombok.extern.slf4j.Slf4j;
 public class UtenteService {
 
 	private final UtenteRepository utenteRepository;
-	
 
+  public void save(UtenteDto uDto){
+      Utente utente = new Utente();
+      utente.setNome(uDto.getNome());
+      utente.setCognome(uDto.getCognome());
+	  utenteRepository.save(utente);
+  }
+  public void update(UtenteDtoUpdate ut){
+      Utente utente = utenteRepository.findByCognome(ut.getCognome());
+      utente.setEta(ut.getEta());
+      utente.setCitta(ut.getCitta());
+      utente.setProfessione(ut.getProfessione());
+      utente.setSesso(ut.getSesso());
+
+      utenteRepository.save(utente);
+  }
+
+  public void delete(UtenteDto ut){
+      Utente utente=utenteRepository.findByCognome(ut.getCognome());
+      utenteRepository.delete(utente);
+  }
 }
