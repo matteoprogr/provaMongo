@@ -1,7 +1,7 @@
 spring:
+  application:
+    name: demo
   data:
-      mongodb:
-        user:
-        password:
-        uri: mongodb://localhost:27017/db
-
+    mongodb:
+      uri: mongodb://root:root@localhost:27017/MongoDb?authSource=admin
+      auto-index-creation: true
